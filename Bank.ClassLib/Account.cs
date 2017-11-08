@@ -14,5 +14,10 @@ namespace Bank.ClassLib
             Id = id;
             Balance = balance;
         }
+
+        public void DoOperation(IOperation operation) 
+        {
+            operation.Execute(this);
+        }
     }
 }
