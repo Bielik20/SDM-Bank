@@ -26,6 +26,11 @@
             account.Display();
 
             System.Console.WriteLine(account.Interest);
+            account.SwitchToNonLinearInterests();
+            System.Console.WriteLine(account.Interest);
+            account.SwitchToRandInterests();
+            System.Console.WriteLine(account.Interest);
+            
         }
     }
 }

@@ -27,6 +27,21 @@ namespace Bank.ClassLib
             operation.Execute(this);
         }
 
+        public void SwitchToLinearInterests()
+        {
+            _interestState = new LinearInterests();
+        }
+
+        public void SwitchToNonLinearInterests()
+        {
+            _interestState = new NonLinearInterests();
+        }
+
+        public void SwitchToRandInterests()
+        {
+            _interestState = new RandInterests();
+        }
+
         public void Display()
         {
             Console.WriteLine("########################");
