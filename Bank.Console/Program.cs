@@ -24,6 +24,8 @@
 
             bank.PayInstallment(account, 300);
             account.Display();
+
+            System.Console.WriteLine(account.Interest);
         }
     }
 }
