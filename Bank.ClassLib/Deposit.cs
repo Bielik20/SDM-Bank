@@ -1,6 +1,6 @@
 using System;
 
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
     public class Deposit
     {

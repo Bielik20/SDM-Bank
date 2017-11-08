@@ -1,8 +1,8 @@
 using System;
 
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
-    public class RandInterests : IInterestState
+    public class RandInterest : IInterestState
     {
         public decimal Interest(Account account)
         {

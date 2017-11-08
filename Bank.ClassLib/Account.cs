@@ -1,6 +1,6 @@
 using System;
 
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
     public class Account
     {
@@ -8,7 +8,7 @@ namespace Bank.ClassLib
         public decimal Balance { get; set; } = 0;
         public decimal Loan { get; set; } = 0;
         public Deposit Deposit { get; set; } = new Deposit();
-        private IInterestState _interestState = new LinearInterests();
+        private IInterestState _interestState = new LinearInterest();
 
         public decimal Interest
         {
@@ -29,17 +29,17 @@ namespace Bank.ClassLib
 
         public void SwitchToLinearInterests()
         {
-            _interestState = new LinearInterests();
+            _interestState = new LinearInterest();
         }
 
-        public void SwitchToNonLinearInterests()
+        public void SwitchToNonLinearInterest()
         {
-            _interestState = new NonLinearInterests();
+            _interestState = new NonLinearInterest();
         }
 
-        public void SwitchToRandInterests()
+        public void SwitchToRandInterest()
         {
-            _interestState = new RandInterests();
+            _interestState = new RandInterest();
         }
 
         public void Display()

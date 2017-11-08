@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Bank.ClassLib\Bank.ClassLib.csproj" />
+    <ProjectReference Include="..\Bank.ClassLib\BankingSystem.ClassLib.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

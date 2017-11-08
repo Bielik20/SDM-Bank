@@ -1,4 +1,4 @@
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
     public class TakeLoan : IOperation
     {

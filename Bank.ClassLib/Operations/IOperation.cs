@@ -1,4 +1,4 @@
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
     public interface IOperation
     {

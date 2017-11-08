@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
     public class Bank
     {

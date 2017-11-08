@@ -1,7 +1,7 @@
-﻿namespace Bank.Console
+﻿namespace BankingSystem.Console
 {
     using System;
-    using Bank.ClassLib;
+    using BankingSystem.ClassLib;
 
     class Program
     {
@@ -25,12 +25,13 @@
             bank.PayInstallment(account, 300);
             account.Display();
 
-            System.Console.WriteLine(account.Interest);
-            account.SwitchToNonLinearInterests();
-            System.Console.WriteLine(account.Interest);
-            account.SwitchToRandInterests();
-            System.Console.WriteLine(account.Interest);
-            
+            Console.WriteLine($"Linear interest. Loan cost = {account.Interest}");
+            account.SwitchToNonLinearInterest();
+            Console.WriteLine($"Nonlinear interest. Loan cost = {account.Interest}");
+            account.SwitchToRandInterest();
+            Console.WriteLine($"Random interest. Loan cost = {account.Interest}");
+
+            Console.ReadKey();
         }
     }
 }

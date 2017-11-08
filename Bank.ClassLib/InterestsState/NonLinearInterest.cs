@@ -1,6 +1,6 @@
-namespace Bank.ClassLib
+namespace BankingSystem.ClassLib
 {
-    public class NonLinearInterests : IInterestState
+    public class NonLinearInterest : IInterestState
     {
         public decimal Interest(Account account)
         {
