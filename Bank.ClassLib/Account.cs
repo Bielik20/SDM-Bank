@@ -19,5 +19,13 @@ namespace Bank.ClassLib
         {
             operation.Execute(this);
         }
+
+        public void Display() 
+        {
+            Console.WriteLine("########################");            
+            Console.WriteLine("Balance = " + Balance);
+            Console.WriteLine("Loan = " + Loan);
+            Console.WriteLine("Deposit = " + Deposit.Balance);            
+        }
     }
 }

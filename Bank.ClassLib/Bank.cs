@@ -5,7 +5,7 @@ namespace Bank.ClassLib
 {
     public class Bank
     {
-        public IEnumerable<Account> Accounts { get; private set; }
+        public List<Account> Accounts { get; private set; }
         public int Balance { get; private set; }
 
         public Bank()
