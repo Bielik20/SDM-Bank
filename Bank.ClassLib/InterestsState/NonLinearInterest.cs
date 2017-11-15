@@ -2,7 +2,7 @@ namespace BankingSystem.ClassLib
 {
     public class NonLinearInterest : IInterestState
     {
-        public decimal Interest(Account account)
+        public decimal Interest(IAccount account)
         {
             if (account.Balance == 0 || account.Loan > account.Balance)
             {

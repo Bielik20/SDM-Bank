@@ -9,7 +9,7 @@ namespace BankingSystem.ClassLib
             _moneyToStore = moneyToStore;
         }
 
-        public void Execute(Account account)
+        public void Execute(IAccount account)
         {
             account.Deposit.Balance += _moneyToStore;
             account.Balance -= _moneyToStore;

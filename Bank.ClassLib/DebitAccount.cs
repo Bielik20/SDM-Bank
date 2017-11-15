@@ -2,7 +2,7 @@ using System;
 
 namespace BankingSystem.ClassLib
 {
-    public class Account: IAccount
+    public class DebitAccount: IAccount
     {
         public readonly string id;
         public decimal Balance { get; set; } = 0;
@@ -16,7 +16,7 @@ namespace BankingSystem.ClassLib
         }
 
 
-        public Account(string id, decimal balance = 0)
+        public DebitAccount(string id, decimal balance = 0)
         {
             this.id = id;
             Balance = balance;

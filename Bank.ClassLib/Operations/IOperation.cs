@@ -2,6 +2,6 @@ namespace BankingSystem.ClassLib
 {
     public interface IOperation
     {
-        void Execute(Account account);
+        void Execute(IAccount account);
     }
 }

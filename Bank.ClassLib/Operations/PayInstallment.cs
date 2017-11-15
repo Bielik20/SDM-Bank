@@ -9,7 +9,7 @@ namespace BankingSystem.ClassLib
             _installment = installment;
         }
 
-        public void Execute(Account account)
+        public void Execute(IAccount account)
         {
             account.Loan -= _installment;
             account.Balance -= _installment;

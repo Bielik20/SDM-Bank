@@ -4,7 +4,7 @@ namespace BankingSystem.ClassLib
 {
     public class RandInterest : IInterestState
     {
-        public decimal Interest(Account account)
+        public decimal Interest(IAccount account)
         {
             var rand = new Random();
             var coefficient = rand.Next(0, 100) / 100.0;
