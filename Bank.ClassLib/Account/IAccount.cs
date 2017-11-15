@@ -1,5 +1,3 @@
-using System;
-
 namespace BankingSystem.ClassLib
 {
     public interface IAccount
@@ -17,5 +15,7 @@ namespace BankingSystem.ClassLib
         void SwitchToNonLinearInterest();
 
         void SwitchToRandInterest();
+
+        void Display();
     }
 }
