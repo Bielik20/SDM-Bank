@@ -6,10 +6,11 @@ namespace BankingSystem.ClassLib
     public class Bank
     {
         public List<IAccount> Accounts { get; private set; }
-        public int Balance { get; private set; }
+        public decimal Balance { get; set; }
 
-        public Bank()
+        public Bank(decimal balance = 0)
         {
+            Balance = balance;
             BootstrapAccounts();
         }
 
@@ -22,6 +23,11 @@ namespace BankingSystem.ClassLib
                 new Account("44102000038758212314035006", 2000),
                 new Account("53249000050041310232555754", 3500)
             };
+        }
+
+        public void DoOperation(IBankOperation operation)
+        {
+            operation.Execute(this);
         }
 
         public void PayInstallment(IAccount account, decimal installment)

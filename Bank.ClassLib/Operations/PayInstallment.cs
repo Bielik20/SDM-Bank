@@ -16,7 +16,3 @@ namespace BankingSystem.ClassLib
         }
     }
 }
-
-// decimal StoreMoney(decimal moneyToStore);
-// decimal ReturnMoney();
-// decimal TakeLoan(decimal amount_of_loan);

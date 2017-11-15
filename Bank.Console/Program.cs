@@ -31,6 +31,13 @@
             account.SwitchToRandInterest();
             Console.WriteLine($"Random interest. Loan cost = {account.Interest}");
 
+            var sourceBank = new Bank(500);
+            var targetBank = new Bank(1000);
+            var interBankPayment = new InterBankPayment(100, targetBank);
+            sourceBank.DoOperation(interBankPayment);
+            System.Console.WriteLine(sourceBank.Balance);
+            System.Console.WriteLine(targetBank.Balance);            
+
             Console.ReadKey();
         }
     }

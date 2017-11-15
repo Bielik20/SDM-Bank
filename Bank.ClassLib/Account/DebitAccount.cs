@@ -4,12 +4,16 @@ namespace BankingSystem.ClassLib
 {
     public class DebitAccount: IAccount
     {
-        private IAccount _account;
-        
         public decimal Balance 
         {
             get { return _account.Balance; }
-            set { _account.Balance = value; }
+            set 
+            { 
+                if (value >= -_limit)
+                    _account.Balance = value; 
+                else
+                    throw new Exception("Not enough money. Over the limit.");
+            }
         }
         public decimal Loan
         {
@@ -26,10 +30,13 @@ namespace BankingSystem.ClassLib
             get { return _account.Interest; }
         }
 
+        private IAccount _account;
+        private decimal _limit;
 
-        public DebitAccount(IAccount account)
+        public DebitAccount(IAccount account, decimal limit = 0)
         {
             _account = account;
+            _limit = limit;
         }
 
         public void DoOperation(IOperation operation)

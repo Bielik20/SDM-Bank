@@ -16,5 +16,3 @@ namespace BankingSystem.ClassLib
         }
     }
 }
-
-// decimal TakeLoan(decimal amount_of_loan);
