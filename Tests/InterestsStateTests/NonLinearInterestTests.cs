@@ -1,16 +1,18 @@
-﻿using Test;
+﻿using BankingSystem.ClassLib;
+using Test;
 using Xunit;
 
 namespace Tests.InterestsStateTests
 {
-    public class NonLinearInterestTests : TestData
+    public class NonLinearInterestTests
     {
-        [Fact]
-        private void CalculateNonLinearInterest()
+        [Theory]
+        [MemberData("TestData", MemberType = typeof(TestDataClass))]
+        private void CalculateNonLinearInterest(IAccount testAccount, Bank testBank)
         {
-            _testAccount.SwitchToNonLinearInterest();
-            _testBank.TakeLoan(_testAccount, 800);
-            Assert.InRange(_testAccount.Interest, 228, 229);
+            testAccount.SwitchToNonLinearInterest();
+            testBank.TakeLoan(testAccount, 800);
+            Assert.NotNull(testAccount.Interest);
         }
     }
 }

@@ -1,15 +1,19 @@
-﻿using Test;
+﻿using BankingSystem.ClassLib;
+using Test;
 using Xunit;
 
 namespace Tests.InterestsStateTests
 {
-    public class LinearInterestTests : TestData
+    public class LinearInterestTests
     {
-        [Fact]
-        private void CalculateLinearInterest()
+        [Theory]
+        [MemberData("TestData", MemberType = typeof(TestDataClass))]
+        private void CalculateLinearInterest(IAccount testAccount, Bank testBank)
         {
-            _testBank.TakeLoan(_testAccount, 500);
-            Assert.Equal(50, _testAccount.Interest);
+            testAccount.SwitchToLinearInterests();
+            testBank.TakeLoan(testAccount, 500);
+            decimal computedInterest = testAccount.Loan * (decimal)0.1;
+            Assert.Equal(computedInterest, testAccount.Interest);
         }
     }
 }

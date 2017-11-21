@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankingSystem.ClassLib;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Test;
@@ -6,15 +7,19 @@ using Xunit;
 
 namespace Tests.OperationsTests
 {
-    public class ReturnMoneyTests : TestData
+    public class ReturnMoneyTests
     {
-        [Fact]
-        private void ReturnMoney()
+        [Theory]
+        [MemberData("TestData", MemberType = typeof(TestDataClass))]
+        private void ReturnMoney(IAccount testAccount, Bank testBank)
         {
-            _testBank.StoreMoney(_testAccount, 500);
-            _testBank.ReturnMoney(_testAccount, 100);
-            Assert.Equal(400, _testAccount.Deposit.Balance);
-            Assert.Equal(1600, _testAccount.Balance);
+            decimal balanceBefore = testAccount.Balance;
+            decimal depositBefore = testAccount.Deposit.Balance;
+
+            testBank.StoreMoney(testAccount, 500);
+            testBank.ReturnMoney(testAccount, 100);
+            Assert.Equal(depositBefore + 400, testAccount.Deposit.Balance);
+            Assert.Equal(balanceBefore - 400, testAccount.Balance);
         }
     }
 }

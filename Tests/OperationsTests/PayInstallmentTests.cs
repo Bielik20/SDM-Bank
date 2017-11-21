@@ -1,17 +1,22 @@
 ﻿using Xunit;
 using Test;
+using BankingSystem.ClassLib;
 
 namespace Tests.OperationsTests
 {
-    public class PayInstallmentTests : TestData
+    public class PayInstallmentTests
     {
-        [Fact]
-        private void PayInstallment()
+        [Theory]
+        [MemberData("TestData", MemberType = typeof(TestDataClass))]
+        private void PayInstallment(IAccount testAccount, Bank testBank)
         {
-            _testBank.TakeLoan(_testAccount, 800);
-            _testBank.PayInstallment(_testAccount, 200);
-            Assert.Equal(600, _testAccount.Loan);
-            Assert.Equal(2600, _testAccount.Balance);
+            decimal balanceBefore = testAccount.Balance;
+            decimal loanBefore = testAccount.Loan;
+
+            testBank.TakeLoan(testAccount, 800);
+            testBank.PayInstallment(testAccount, 200);
+            Assert.Equal(loanBefore + 600, testAccount.Loan);
+            Assert.Equal(balanceBefore + 600, testAccount.Balance);
         }
     }
 }

@@ -16,4 +16,11 @@
     <ProjectReference Include="..\Bank.ClassLib\BankingSystem.ClassLib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <Generator>MSDataSetGenerator</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
