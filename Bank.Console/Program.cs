@@ -7,7 +7,29 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // OperationsInterest();
+
+            // InterBankPayment();
+
+            Visitor();
+
+            Console.ReadKey();
+        }
+
+        private static void Visitor()
+        {
+            var bank = new Bank();
+            var visitor = new ReportVisitor();
+
+            foreach(IReportVisitee account in bank.Accounts) 
+            {
+                account.Accept(visitor);
+            }
+            visitor.PrintReport();
+        }
+
+        private static void OperationsInterest()
+        {
             var bank = new Bank();
 
             var account = bank.Accounts[0];
@@ -15,7 +37,7 @@
 
             bank.StoreMoney(account, 200);
             account.Display();
-            
+
             bank.ReturnMoney(account, 100);
             account.Display();
 
@@ -30,15 +52,16 @@
             Console.WriteLine($"Nonlinear interest. Loan cost = {account.Interest}");
             account.SwitchToRandInterest();
             Console.WriteLine($"Random interest. Loan cost = {account.Interest}");
+        }
 
+        private static void InterBankPayment()
+        {
             var sourceBank = new Bank(500);
             var targetBank = new Bank(1000);
             var interBankPayment = new InterBankPayment(100, targetBank);
             sourceBank.DoOperation(interBankPayment);
             System.Console.WriteLine(sourceBank.Balance);
-            System.Console.WriteLine(targetBank.Balance);            
-
-            Console.ReadKey();
+            System.Console.WriteLine(targetBank.Balance);
         }
     }
 }

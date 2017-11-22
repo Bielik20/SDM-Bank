@@ -21,7 +21,9 @@ namespace BankingSystem.ClassLib
                 new Account("44102000038758212314035006", 2000),
                 new Account("24249000054689148053160684", 1500),
                 new Account("44102000038758212314035006", 2000),
-                new Account("53249000050041310232555754", 3500)
+                new DebitAccount(new Account("53249000050041310232555755", 3500)),                
+                new Account("53249000050041310232555754", 3500),
+                new DebitAccount(new Account("53249000050041310232555756", 3500))
             };
         }
 

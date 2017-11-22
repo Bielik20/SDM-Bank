@@ -2,7 +2,7 @@ using System;
 
 namespace BankingSystem.ClassLib
 {
-    public class DebitAccount: IAccount
+    public class DebitAccount: IAccount, IReportVisitee
     {
         public decimal Balance 
         {
@@ -62,6 +62,11 @@ namespace BankingSystem.ClassLib
         public void Display()
         {
             _account.Display();
+        }
+
+        public void Accept(IReportVisitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }

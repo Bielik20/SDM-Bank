@@ -2,7 +2,7 @@ using System;
 
 namespace BankingSystem.ClassLib
 {
-    public class Account: IAccount
+    public class Account: IAccount, IReportVisitee
     {
         public readonly string id;
         public decimal Balance { get; set; } = 0;
@@ -48,6 +48,11 @@ namespace BankingSystem.ClassLib
             Console.WriteLine("Balance = " + Balance);
             Console.WriteLine("Loan = " + Loan);
             Console.WriteLine("Deposit = " + Deposit.Balance);
+        }
+
+        public void Accept(IReportVisitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }
