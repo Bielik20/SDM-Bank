@@ -1,6 +1,7 @@
 ﻿namespace BankingSystem.Console
 {
     using System;
+    using System.Collections.Generic;
     using BankingSystem.ClassLib;
 
     class Program
@@ -11,9 +12,27 @@
 
             // InterBankPayment();
 
-            Visitor();
+            // Visitor();
+
+            // GenericVisitor();
 
             Console.ReadKey();
+        }
+
+        private static void GenericVisitor()
+        {
+            var list = new List<IVisitee>
+            {
+                new ConcreteVisitee1(),
+                new ConcreteVisitee2(),
+                new ConcreteVisitee1(),                
+            };
+            var visitor = new ConcreteVisitor();
+
+            foreach(var visitee in list) 
+            {
+                visitee.Accept(visitor);
+            }
         }
 
         private static void Visitor()
